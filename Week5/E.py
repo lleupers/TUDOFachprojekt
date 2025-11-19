@@ -4,3 +4,4 @@ width = numbers[1]
 length = numbers[2]
 
 placed = list(map(int,input().split(" ")))
+
