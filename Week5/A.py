@@ -1,12 +1,25 @@
 n, k = list(map(int,input().split(" ")))
 
-sequences = []
+letters = []
+mothers = []
 
 for x in range(n):
-    letter,_ = list(input().split(" "))
-    if x == 0:
-        sequences.append(letter)
-    else:
-        sequences.insert(0,letter + sequences[0])
+    letter, mother = list(input().split(" "))
+    letters.append(letter)
+    mothers.append(int(mother))
 
-print(sequences)
+names = []
+for i in range(n):
+    if mothers[i] == 0:
+        name = letters[i]
+    else:
+        name = letters[i]+names[mothers[i]-1]
+    names.append(name)
+
+for x in range(k):
+    count = 0
+    symbol = input()
+    for name in names:
+        if name.startswith(symbol):
+            count += 1
+    print(count)
